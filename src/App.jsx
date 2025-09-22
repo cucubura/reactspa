@@ -1,35 +1,47 @@
-import { NavLink, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home.jsx'
-import About from './pages/About.jsx'
-import Contact from './pages/Contact.jsx'
-import Help from './pages/Help.jsx'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { pushPageView } from "./utils/analytics";
+
+// Import your page components
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Help from "./pages/Help";
+
+function RouteTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Map routes to friendly names & categories
+    const pageMap = {
+      "/": { name: "Home", category: "General" },
+      "/about": { name: "About Us", category: "Company" },
+      "/contact": { name: "Contact Us", category: "Engagement" },
+      "/help": { name: "Help", category: "Support" }
+    };
+
+    const { name, category } = pageMap[location.pathname] || {
+      name: location.pathname,
+      category: "Other"
+    };
+
+    pushPageView(name, category);
+  }, [location]);
+
+  return null;
+}
 
 export default function App() {
   return (
-    <div className="app">
-      <header className="topbar">
-        <div className="brand">React SPA</div>
-        <nav className="nav">
-          <NavLink to="/" end className={({ isActive }) => isActive ? 'link active' : 'link'}>Home</NavLink>
-          <NavLink to="/about" className={({ isActive }) => isActive ? 'link active' : 'link'}>About Us</NavLink>
-          <NavLink to="/contact" className={({ isActive }) => isActive ? 'link active' : 'link'}>Contact Us</NavLink>
-          <NavLink to="/help" className={({ isActive }) => isActive ? 'link active' : 'link'}>Help</NavLink>
-        </nav>
-      </header>
-
-      <main className="content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/help" element={<Help />} />
-          <Route path="*" element={<h2>Page not found</h2>} />
-        </Routes>
-      </main>
-
-      <footer className="footer">
-        <small>© {new Date().getFullYear()} React SPA</small>
-      </footer>
-    </div>
-  )
+    <Router>
+      <RouteTracker />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/help" element={<Help />} />
+      </Routes>
+    </Router>
+  );
 }
