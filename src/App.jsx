@@ -12,7 +12,6 @@ function RouteTracker() {
   const location = useLocation();
 
   useEffect(() => {
-    // Map routes to friendly names & categories
     const pageMap = {
       "/": { name: "Home", category: "General" },
       "/about": { name: "About Us", category: "Company" },
