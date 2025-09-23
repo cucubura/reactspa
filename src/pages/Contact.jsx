@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { pushEvent } from "../utils/analytics";
 
 export default function Contact() {
   const [values, setValues] = useState({ name: '', email: '', message: '' })
@@ -9,6 +10,12 @@ export default function Contact() {
     e.preventDefault()
     setStatus('Thanks! This demo form just shows how you’d capture input.')
     // Replace with real submit (fetch/axios) if you have an API endpoint.
+
+    pushEvent("form_submit", {
+      form: "Contact Us",
+      name: values.name,
+      email: values.email
+    });
   }
 
   return (
