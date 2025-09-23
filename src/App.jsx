@@ -29,6 +29,7 @@ export default function App() {
 
 
 return (
+  <Router>
   <div className="app">
     <header className="topbar">
       <div className="brand">React SPA</div>
@@ -41,7 +42,7 @@ return (
     </header>
 
     <main className="content">
-      <Router>
+      
       <RouteTracker />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -50,12 +51,13 @@ return (
         <Route path="/help" element={<Help />} />
         <Route path="*" element={<h2>Page not found</h2>} />
       </Routes>
-      </Router>
+    
     </main>
 
     <footer className="footer">
       <small>© {new Date().getFullYear()} React SPA</small>
     </footer>
   </div>
+  </Router>
 )
 }
