@@ -1,12 +1,11 @@
-export function pushPageView(pageName, pageCategory) {
+export function pushPageView(pageName) {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: "page_view",
     page: pageName,
-    pageCategory: pageCategory,
     timestamp: new Date().toISOString()
   });
-  console.log("dataLayer page_view:", pageName, pageCategory);
+  console.log("dataLayer page_view:", pageName);
 }
 
 export function pushEvent(eventName, details = {}) {
