@@ -1,3 +1,5 @@
+import { pushEvent } from "../utils/analytics";
+
 export default function Help() {
   const handleClick = () => {
     pushEvent("button_click", {
