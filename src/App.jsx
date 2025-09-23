@@ -6,7 +6,7 @@ import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import Contact from './pages/Contact.jsx';
 import Help from './pages/Help.jsx';
-import Shop from "./pages/Shop.jsx";
+import Shop from './pages/Shop.jsx';
 
 function RouteTracker() {
   const location = useLocation();
@@ -39,7 +39,7 @@ export default function App() {
             <NavLink to="/about" className={({ isActive }) => isActive ? 'link active' : 'link'}>About Us</NavLink>
             <NavLink to="/contact" className={({ isActive }) => isActive ? 'link active' : 'link'}>Contact Us</NavLink>
             <NavLink to="/help" className={({ isActive }) => isActive ? 'link active' : 'link'}>Help</NavLink>
-            <NavLink to="/help" className={({ isActive }) => isActive ? 'link active' : 'link'}>Shop</NavLink>
+            <NavLink to="/shop" className={({ isActive }) => isActive ? 'link active' : 'link'}>Shop</NavLink>
           </nav>
         </header>
 
