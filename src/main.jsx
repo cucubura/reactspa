@@ -5,9 +5,9 @@ import App from './App.jsx'
 import './App.css'
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  
   <React.StrictMode>
       <App />
   </React.StrictMode>
-  </BrowserRouter>
+  
 )

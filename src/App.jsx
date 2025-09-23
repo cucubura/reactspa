@@ -29,6 +29,7 @@ function RouteTracker() {
 
 export default function App() {
   return (
+<Router>
       <div className="app">
         <header className="topbar">
           <div className="brand">React SPA</div>
@@ -55,5 +56,6 @@ export default function App() {
           <small>© {new Date().getFullYear()} React SPA</small>
         </footer>
       </div>
+      </router>
   );
 }
