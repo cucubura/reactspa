@@ -1,7 +1,7 @@
 import { NavLink, Routes, Route } from 'react-router-dom'
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { pushPageView } from "./utils/analytics";
+import { pushPageView } from "/utils/analytics";
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
