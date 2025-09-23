@@ -1,6 +1,4 @@
-import { NavLink, Routes, Route } from 'react-router-dom'
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { BrowserRouter as Router, NavLink, Routes, Route, useLocation } from 'react-router-dom';
 import { pushPageView } from "./utils/analytics.js";
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
@@ -43,6 +41,7 @@ return (
     </header>
 
     <main className="content">
+      <Router>
       <RouteTracker />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -51,6 +50,7 @@ return (
         <Route path="/help" element={<Help />} />
         <Route path="*" element={<h2>Page not found</h2>} />
       </Routes>
+      </Router>
     </main>
 
     <footer className="footer">
