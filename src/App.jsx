@@ -7,7 +7,6 @@ import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Help from './pages/Help.jsx'
 
-export default function App() {
 
 function RouteTracker() {
 const location = useLocation();
@@ -27,6 +26,10 @@ useEffect(() => {
 return null;
 }
 
+export default function App() {
+
+
+
 return (
   <div className="app">
     <header className="topbar">
@@ -40,6 +43,7 @@ return (
     </header>
 
     <main className="content">
+      <RouteTracker />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
