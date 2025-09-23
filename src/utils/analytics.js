@@ -1,11 +1,11 @@
 export function pushPageView(pageName) {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
-    event: "page_view",
+    event: "spa_page_view",
     page: pageName,
     timestamp: new Date().toISOString()
   });
-  console.log("dataLayer page_view:", pageName);
+  console.log("SPA page_view:", pageName);
 }
 
 export function pushEvent(eventName, details = {}) {
