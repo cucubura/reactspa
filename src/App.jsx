@@ -18,9 +18,10 @@ function RouteTracker() {
       "/contact": "Contact Us",
       "/help": "Help"
     };
+    const pageLocation = location.pathname;
     const pageName = pageMap[location.pathname] || location.pathname;
     console.log("Tracking page:", pageName); // debug log
-    pushPageView(pageName);
+    pushPageView(pageName, pageLocation);
   }, [location]);
 
   return null;
