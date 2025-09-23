@@ -56,6 +56,6 @@ export default function App() {
           <small>© {new Date().getFullYear()} React SPA</small>
         </footer>
       </div>
-      </router>
+      </Router>
   );
 }
