@@ -16,7 +16,7 @@ function RouteTracker() {
     const pageMap = {
       "/": "Home",
       "/about": "About Us",
-      "/contact": "Contact Us",
+      "/contact": "Contact Uss",
       "/help": "Help"
     };
     const pageLocation = location.pathname;
